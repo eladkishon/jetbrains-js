@@ -1,10 +1,12 @@
-/* eslint-disable functional/prefer-readonly-type */
 import * as fs from "fs";
 
-import {json2xml} from "./xml-js";
+import {json2xml} from "../../xml-js";
+
+import {Env, NpmRunConfig, NpmRunConfigurationOptions, RunConfigBase, RunConfigurationOptions} from "./types";
+
 const findUpGlob = require('find-up-glob');
 
-const RunConfigBase: RunConfigBase = {
+const RunConfigBaseTemplate: RunConfigBase = {
     component: {
         _attributes: {name: 'ProjectRunConfigurationManager'},
         configuration: {
@@ -26,7 +28,7 @@ const RunConfigBase: RunConfigBase = {
     }
 }
 
-const NpmRunConfigBase: NpmRunConfig = {
+const NpmRunConfigBaseTemplate: NpmRunConfig = {
     component: {
         _attributes: {name: "ProjectRunConfigurationManager"},
         configuration: {
@@ -74,7 +76,7 @@ function deepClone(obj: any) {
 }
 
 export class WebstormRunConfiguration {
-    private static buildEnvObject(env: { [key: string]: string }) : env[] {
+    private static buildEnvObject(env: { readonly [key: string]: string }) : Env[] {
         return Object.keys(env).map(key => {
             return {
                 env: {
@@ -96,7 +98,7 @@ export class WebstormRunConfiguration {
     }
 
     static async saveNodeJsConfig(options: RunConfigurationOptions) {
-        const runConfig = deepClone(RunConfigBase);
+        const runConfig = deepClone(RunConfigBaseTemplate);
         Object.assign(runConfig.component.configuration._attributes, {
             default: "false",
             name: options.name,
@@ -112,7 +114,7 @@ export class WebstormRunConfiguration {
 
     static async saveNpmConfig(options: NpmRunConfigurationOptions) {
         const packageJson: any = JSON.parse(fs.readFileSync(options.packageJsonPath, 'utf8'))
-        const runConfig : NpmRunConfig = deepClone(NpmRunConfigBase);
+        const runConfig : NpmRunConfig = deepClone(NpmRunConfigBaseTemplate);
         runConfig.component.configuration["package-json"]._attributes.value = options.packageJsonPath;
         runConfig.component.configuration._attributes.name = packageJson.name;
         runConfig.component.configuration.envs.push(...WebstormRunConfiguration.buildEnvObject(options.env))

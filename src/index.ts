@@ -1,1 +1,1 @@
-export * from './WebstormRunConfiguration'
+export * from './lib'

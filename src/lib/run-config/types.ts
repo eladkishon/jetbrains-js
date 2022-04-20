@@ -1,5 +1,5 @@
 /* eslint-disable functional/prefer-readonly-type */
-type RunConfigurationOptions = {
+export type RunConfigurationOptions = {
     name?: string;
     args: string;
     filePath: string;
@@ -9,14 +9,14 @@ type RunConfigurationOptions = {
     };
 }
 
-type NpmRunConfigurationOptions = {
+export type NpmRunConfigurationOptions = {
     packageJsonPath: string;
     env?: {
         [key: string]: string;
     };
 };
 
-type env = {
+export type Env = {
     env: {
         _attributes: {
             name: string,
@@ -24,7 +24,7 @@ type env = {
         }
     }
 }
-type RunConfigBase = {
+export type RunConfigBase = {
     component: {
         _attributes: { name: 'ProjectRunConfigurationManager' },
         configuration: {
@@ -33,13 +33,13 @@ type RunConfigBase = {
                 type: string;
                 [key: string]: string;
             }
-            envs: env[]
+            envs: Env[]
         }
 
     }
 };
 
-type NpmRunConfig = RunConfigBase & {
+export type NpmRunConfig = RunConfigBase & {
     component: {
         _attributes: { name: 'ProjectRunConfigurationManager' },
         configuration: {
@@ -77,7 +77,7 @@ type NpmRunConfig = RunConfigBase & {
                     value: "yarn" | "npm"
                 }
             }
-            envs: env[]
+            envs: Env[]
 
         }
 
