@@ -1,0 +1,85 @@
+/* eslint-disable functional/prefer-readonly-type */
+type RunConfigurationOptions = {
+    name?: string;
+    args: string;
+    filePath: string;
+    workingDir: string;
+    env: {
+        [key: string]: string;
+    };
+}
+
+type NpmRunConfigurationOptions = {
+    packageJsonPath: string;
+    env?: {
+        [key: string]: string;
+    };
+};
+
+type env = {
+    env: {
+        _attributes: {
+            name: string,
+                value: string
+        }
+    }
+}
+type RunConfigBase = {
+    component: {
+        _attributes: { name: 'ProjectRunConfigurationManager' },
+        configuration: {
+            _attributes: {
+                name: string;
+                type: string;
+                [key: string]: string;
+            }
+            envs: env[]
+        }
+
+    }
+};
+
+type NpmRunConfig = RunConfigBase & {
+    component: {
+        _attributes: { name: 'ProjectRunConfigurationManager' },
+        configuration: {
+            _attributes: {
+                name: string;
+                type: string;
+                [key: string]: string;
+            }
+            "package-json": {
+                _attributes: {
+                    value: string
+                }
+            }
+            "command": {
+                _attributes: {
+                    value: string
+                }
+            }
+            scripts: [
+                {
+                    script: {
+                        _attributes: {
+                            value: string
+                        }
+                    }
+                }
+            ]
+            "node-interpreter": {
+                _attributes: {
+                    value: string
+                }
+            }
+            "package-manager": {
+                _attributes: {
+                    value: "yarn" | "npm"
+                }
+            }
+            envs: env[]
+
+        }
+
+    }
+};
