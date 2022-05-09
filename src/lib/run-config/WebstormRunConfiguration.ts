@@ -1,10 +1,11 @@
 import * as fs from "fs";
 
+import findUpGlob from "find-up-glob";
+
 import {json2xml} from "../../xml-js";
 
 import {Env, NpmRunConfig, NpmRunConfigurationOptions, RunConfigBase, RunConfigurationOptions} from "./types";
 
-const findUpGlob = require('find-up-glob');
 
 const RunConfigBaseTemplate: RunConfigBase = {
     component: {
@@ -71,7 +72,7 @@ const NpmRunConfigBaseTemplate: NpmRunConfig = {
     }
 }
 
-function deepClone(obj: any) {
+function deepClone(obj: unknown) {
     return JSON.parse(JSON.stringify(obj));
 }
 

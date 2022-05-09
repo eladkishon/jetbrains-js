@@ -1,4 +1,3 @@
-/* eslint-disable functional/prefer-readonly-type */
 export type RunConfigurationOptions = {
     name?: string;
     args: string;
