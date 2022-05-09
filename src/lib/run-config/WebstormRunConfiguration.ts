@@ -90,7 +90,7 @@ export class WebstormRunConfiguration {
         })
     }
 
-    private static async saveRunConfig(fileName: string, content: object) {
+    private static async saveRunConfig(fileName: string, content: unknown) {
         const runConfigXml = json2xml(JSON.stringify(content), {compact: true, spaces: 4});
         console.debug(runConfigXml);
         const ideaFolder = await findUpGlob('.idea')
