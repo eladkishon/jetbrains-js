@@ -1,14 +1,15 @@
-export interface Attributes {
+/* eslint-disable functional/no-return-void,@typescript-eslint/ban-types */
+export type Attributes = {
   [key: string]: string | number | undefined
-}
+};
 
-export interface DeclarationAttributes {
+export type DeclarationAttributes = {
   version?: string | number
   encoding?: 'utf-8' | string
   standalone?: 'yes' | 'no'
-}
+};
 
-export interface ElementCompact {
+export type ElementCompact = {
   [key: string]: any
   _declaration?: {
     _attributes?: DeclarationAttributes
@@ -21,9 +22,9 @@ export interface ElementCompact {
   _doctype?: string
   _comment?: string
   _text?: string | number
-}
+};
 
-export interface Element {
+export type Element = {
   declaration?: {
     attributes?: DeclarationAttributes
   }
@@ -36,14 +37,14 @@ export interface Element {
   type?: string
   name?: string
   elements?: Array<Element>
-}
+};
 
 declare namespace Options {
-  interface XML2JSON extends XML2JS {
+  type XML2JSON = XML2JS & {
     spaces?: number | string
-  }
+  };
 
-  interface XML2JS extends ChangingKeyNames, IgnoreOptions {
+  type XML2JS = ChangingKeyNames & IgnoreOptions & {
     compact?: boolean
     trim?: boolean
     sanitize?: boolean
@@ -79,9 +80,9 @@ declare namespace Options {
       parentElement: string
     ) => void;
     attributesFn?: (value: string, parentElement: string) => void;
-  }
+  };
 
-  interface JS2XML extends ChangingKeyNames, IgnoreOptions {
+  type JS2XML = ChangingKeyNames & IgnoreOptions & {
     spaces?: number | string
     compact?: boolean
     indentText?: boolean
@@ -121,9 +122,9 @@ declare namespace Options {
     ) => void;
     attributesFn?: (value: string, currentElementName: string, currentElementObj: object) => void;
     fullTagEmptyElementFn?: (currentElementName: string, currentElementObj: object) => void;
-  }
+  };
 
-  interface IgnoreOptions {
+  type IgnoreOptions = {
     ignoreDeclaration?: boolean
     ignoreInstruction?: boolean
     ignoreAttributes?: boolean
@@ -131,9 +132,9 @@ declare namespace Options {
     ignoreCdata?: boolean
     ignoreDoctype?: boolean
     ignoreText?: boolean
-  }
+  };
 
-  interface ChangingKeyNames {
+  type ChangingKeyNames = {
     declarationKey?: string
     instructionKey?: string
     attributesKey?: string
@@ -145,7 +146,7 @@ declare namespace Options {
     typeKey?: string
     nameKey?: string
     elementsKey?: string
-  }
+  };
 }
 
 export function js2xml(obj: Element | ElementCompact, options?: Options.JS2XML): string;
