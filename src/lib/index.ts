@@ -1,1 +1,1 @@
-export * from './run-config'
+export * from './run-config';
