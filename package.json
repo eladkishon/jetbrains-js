@@ -1,32 +1,16 @@
 {
   "name": "jetbrains-js",
-  "version": "0.0.3",
-  "description": "A typescript starter for building javascript libraries and projects",
-  "bin": {
-    "typescript-starter": "./bin/typescript-starter"
-  },
+  "version": "1.0.0",
+  "description": "A jetbrains adapter library to control you IDE configuration programmatically",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/bitjson/typescript-starter",
+  "repository": "https://github.com/eladkishon/jetbrains-js",
   "license": "MIT",
   "keywords": [
     "typescript",
-    "starter",
-    "template",
-    "boilerplate",
+    "jetbrains",
     "library",
-    "node",
-    "typedoc",
-    "ava",
-    "nyc",
-    "eslint",
-    "prettier",
-    "standard-version",
-    "conventional-changelog",
-    "circle-ci",
-    "travis-ci",
-    "appveyor"
   ],
   "scripts": {
     "start": "run-s build && node build/main/index.js",
