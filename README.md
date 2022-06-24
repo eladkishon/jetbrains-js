@@ -13,7 +13,7 @@ npm install jetbrains-js
 
 Save a nodejs run configuration
 ```js
-import { WebstormRunConfiguration } from '@giftwizard/jetbrains-js';
+import { WebstormRunConfiguration } from 'jetbrains-js';
 
 WebstormRunConfiguration.saveNodeJsConfig(
 {
@@ -30,7 +30,7 @@ WebstormRunConfiguration.saveNodeJsConfig(
 
 Save an NPM run script configuration
 ```js
-import { WebstormRunConfiguration } from '@giftwizard/jetbrains-js';
+import { WebstormRunConfiguration } from 'jetbrains-js';
 WebstormRunConfiguration.saveNpmConfig(
     {
         packageJsonPath: '/path/to/my/project/package.json',
