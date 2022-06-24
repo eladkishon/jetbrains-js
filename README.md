@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-npm install @giftwizard/jetbrains-js
+npm install jetbrains-js
 ```
 
 ## Usage
