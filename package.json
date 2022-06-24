@@ -10,7 +10,7 @@
   "keywords": [
     "typescript",
     "jetbrains",
-    "library",
+    "library"
   ],
   "scripts": {
     "start": "run-s build && node build/main/index.js",
