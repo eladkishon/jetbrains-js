@@ -1,5 +1,5 @@
 {
-  "name": "@giftwizard/jetbrains-js",
+  "name": "jetbrains-js",
   "version": "0.0.3",
   "description": "A typescript starter for building javascript libraries and projects",
   "bin": {
