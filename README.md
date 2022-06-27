@@ -1,5 +1,5 @@
 
-# Jetbrains JS
+# [Jetbrains JS](https://www.npmjs.com/package/jetbrains-js)
 
 
 ## Installation
